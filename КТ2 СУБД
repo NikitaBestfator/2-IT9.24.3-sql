@@ -1,0 +1,12 @@
+CREATE USER 'client'@'localhost' IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON `9.24.3it_variant8`.* TO 'client'@'localhost';
+CREATE USER 'manufacturer'@'localhost' IDENTIFIED BY '4321';
+GRANT ALL PRIVILEGES ON `9.24.3it_variant8`.* TO 'manufacturer'@'localhost';
+CREATE USER 'administrator'@'localhost' IDENTIFIED BY '1432';
+GRANT ALL PRIVILEGES ON `9.24.3it_variant8`.* TO 'administrator'@'localhost';
+CREATE USER 'pharmacist'@'localhost' IDENTIFIED BY '4231';
+GRANT ALL PRIVILEGES ON `9.24.3it_variant8`.* TO 'pharmacist'@'localhost';
+CREATE USER 'supplier'@'localhost' IDENTIFIED BY '2314';
+GRANT ALL PRIVILEGES ON `9.24.3it_variant8`.* TO 'supplier'@'localhost';
+
+show database;
