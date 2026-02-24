@@ -172,6 +172,13 @@ END //
 DELIMITER ;
 CALL DropTables();
 
+CREATE INDEX idx_id ON brand (id);
+CREATE INDEX idx1_id ON country (id);
+CREATE INDEX idx2_id ON buyer (id);
+CREATE INDEX idx3_id ON pharmacy_points (id);
+CREATE INDEX idx4_id ON seller (id);
+CREATE INDEX idx5_id ON supplier (id);
+
 REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'manufacturer'@'localhost';
 
 GRANT ALL PRIVILEGES ON `9.24.3variant8_2semestr`.* TO "administrator"@"localhost";
