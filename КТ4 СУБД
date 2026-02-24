@@ -34,8 +34,8 @@ CREATE table IF NOT EXISTS supplier
 (
 id INT auto_increment PRIMARY KEY,
 title VARCHAR(45) NOT NULL,
-legal_address VARCHAR(45) NOT NULL,
-physical_address VARCHAR(45) NOT NULL,
+legal_address VARCHAR(100) NOT NULL,
+physical_address VARCHAR(255) NOT NULL,
 okpo VARCHAR(45) NOT NULL,
 bic VARCHAR(45) NOT NULL,
 surname_supplier_representative BOOLEAN NOT NULL,
@@ -51,10 +51,10 @@ passport_number VARCHAR(45) NOT NULL,
 surname VARCHAR(45) NOT NULL,
 name VARCHAR(45) NOT NULL,
 patronymic VARCHAR(45) NULL,
-CMI_number VARCHAR(45) NOT NULL,
+CMI VARCHAR(45) NOT NULL,
 phone VARCHAR(45) NOT NULL,
-disability_certificate_number VARCHAR(45) NOT NULL,
-pension_certificate_number VARCHAR(45) NOT NULL
+disability_certificate VARCHAR(45) NOT NULL,
+pension_certificate VARCHAR(45) NOT NULL
 );
 
 CREATE table IF NOT EXISTS country
