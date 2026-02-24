@@ -24,8 +24,8 @@ CREATE table IF NOT EXISTS fiscal_receipt
 id INT auto_increment PRIMARY KEY,
 formation_at DATETIME NOT NULL,
 receipt_number VARCHAR(45) NOT NULL,
-discount DECIMAL NOT NULL,
-total_cost DECIMAL NOT NULL,
+discount DECIMAL(10,2) NOT NULL,
+total_cost DECIMAL(10,2) NOT NULL,
 amount_money_deposited DECIMAL NOT NULL,
 benefits BOOLEAN NOT NULL
 );
@@ -74,8 +74,8 @@ CREATE table IF NOT EXISTS orders
 id INT auto_increment PRIMARY KEY,
 individual_number VARCHAR(45) NOT NULL,
 formation_at DATETIME NOT NULL,
-total_cost DECIMAL NOT NULL,
-discount DECIMAL NOT NULL,
+total_cost DECIMAL(10,2) NOT NULL,
+discount DECIMAL(10,2) NOT NULL,
 order_status INT NOT NULL,
 benefits BOOLEAN NOT NULL,
 buyer_id INT REFERENCES buyer(id),
@@ -91,7 +91,7 @@ pharmacy_points_id INT REFERENCES pharmacy_points(id),
 date_formation DATE NOT NULL,
 date_dispatch DATE NOT NULL,
 seller_id INT REFERENCES seller(id),
-total_cost DECIMAL NOT NULL,
+total_cost DECIMAL(10,2) NOT NULL,
 contract_number VARCHAR(45) NOT NULL
 );
 
@@ -121,7 +121,7 @@ CREATE table IF NOT EXISTS supply_agreement_goods
 supply_agreement_id INT REFERENCES supply_agreement(id),
 goods_id INT REFERENCES goods(id),
 quantity INT NOT NULL,
-price_goods DECIMAL NOT NULL
+price_goods DECIMAL(10,2) NOT NULL
 );
 
 CREATE table IF NOT EXISTS receipts_goods
