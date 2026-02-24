@@ -172,12 +172,9 @@ END //
 DELIMITER ;
 CALL DropTables();
 
-CREATE INDEX idx_id ON brand (id);
-CREATE INDEX idx1_id ON country (id);
-CREATE INDEX idx2_id ON buyer (id);
-CREATE INDEX idx3_id ON pharmacy_points (id);
-CREATE INDEX idx4_id ON seller (id);
-CREATE INDEX idx5_id ON supplier (id);
+CREATE INDEX idx_phone ON users (номер_телефона);
+CREATE INDEX idx_passport_number ON users (номер_паспорта);
+CREATE INDEX idx_passport_series ON users (серия_паспорта);
 
 REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'manufacturer'@'localhost';
 
