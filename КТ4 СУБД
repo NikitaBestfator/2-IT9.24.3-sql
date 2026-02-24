@@ -22,7 +22,7 @@ password VARCHAR(45) NOT NULL
 CREATE table IF NOT EXISTS fiscal_receipt
 (
 id INT auto_increment PRIMARY KEY,
-date_and_time_formation DATETIME NOT NULL,
+formation_at DATETIME NOT NULL,
 receipt_number VARCHAR(45) NOT NULL,
 discount DECIMAL NOT NULL,
 total_cost DECIMAL NOT NULL,
@@ -52,7 +52,7 @@ surname VARCHAR(45) NOT NULL,
 name VARCHAR(45) NOT NULL,
 patronymic VARCHAR(45) NULL,
 CMI_number VARCHAR(45) NOT NULL,
-phone_number VARCHAR(45) NOT NULL,
+phone VARCHAR(45) NOT NULL,
 disability_certificate_number VARCHAR(45) NOT NULL,
 pension_certificate_number VARCHAR(45) NOT NULL
 );
@@ -73,7 +73,7 @@ CREATE table IF NOT EXISTS orders
 (
 id INT auto_increment PRIMARY KEY,
 individual_number VARCHAR(45) NOT NULL,
-date_and_time_formation DATETIME NOT NULL,
+formation_at DATETIME NOT NULL,
 total_cost DECIMAL NOT NULL,
 discount DECIMAL NOT NULL,
 order_status INT NOT NULL,
