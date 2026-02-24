@@ -38,9 +38,9 @@ legal_address VARCHAR(100) NOT NULL,
 physical_address VARCHAR(255) NOT NULL,
 okpo VARCHAR(45) NOT NULL,
 bic VARCHAR(45) NOT NULL,
-surname_supplier_representative BOOLEAN NOT NULL,
-name_supplier_representative BOOLEAN NOT NULL,
-patronymic_supplier_representative BOOLEAN NULL
+surname VARCHAR(45) NOT NULL,
+name VARCHAR(45) NOT NULL,
+patronymic VARCHAR(45) NULL
 );
 
 CREATE table IF NOT EXISTS buyer
