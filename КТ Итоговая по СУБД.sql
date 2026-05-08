@@ -91,3 +91,41 @@ DROP TABLE active_loans;
 
 -- 6 аномалия
 
+SHOW PROCEDURE STATUS WHERE DB = 'exam_bestfator';
+
+-- как исправить
+
+DELIMITER $$
+CREATE PROCEDURE return_book(IN p_loan_id INT)
+BEGIN
+    DECLARE v_days_late INT;
+    DECLARE v_book_id INT;
+    DECLARE v_due_date DATE;
+    
+    -- Получить информацию о выдаче
+    SELECT book_id, due_date INTO v_book_id, v_due_date
+    FROM loans
+    WHERE id = p_loan_id AND return_date IS NULL;
+    
+    -- Рассчитать дни просрочки
+    SET v_days_late = DATEDIFF(CURDATE(), v_due_date);
+    
+    -- Обновить дату возврата
+    UPDATE loans
+    SET return_date = CURDATE()
+    WHERE id = p_loan_id;
+    
+    -- Если есть просрочка — создать штраф
+    IF v_days_late > 0 THEN
+        INSERT INTO fines (loan_id, amount, issued_date)
+        VALUES (p_loan_id, v_days_late * 0.50, CURDATE());
+    END IF;
+    
+    SELECT 'Книга успешно возвращена' AS message;
+END$$
+DELIMITER ;
+
+-- Дополнительные аномалии
+
+-- 1 аномалия
+
