@@ -129,3 +129,35 @@ DELIMITER ;
 
 -- 1 аномалия
 
+DESCRIBE books;
+
+-- как исправить
+
+ALTER TABLE books DROP COLUMN author;
+
+-- 2 аномалия
+
+SELECT COUNT(*) FROM loans WHERE return_date IS NULL;
+SELECT COUNT(*) FROM active_loans;
+
+-- как исправить
+
+-- удалить active_loans и использовать представление
+
+-- 3 аномалия
+
+-- нет диагностического запроса
+
+-- как исправить
+
+ALTER TABLE books
+ADD CONSTRAINT chk_copies CHECK (total_copies >= 0 AND available_copies >= 0);
+
+-- 4 аномалия
+
+-- нет диагностического запроса
+
+-- как исправить
+
+ALTER TABLE loans
+ADD CONSTRAINT chk_status CHECK (status IN ('active', 'returned', 'lost'));
